@@ -36,6 +36,7 @@ body{
     border-radius: 5px;
     background: #fff;
     transition: 0.3s ease-in-out;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
 }
 
 .container .line-box .line.first.active{
