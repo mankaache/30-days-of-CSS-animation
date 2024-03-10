@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+:root{
+    --color-background:#6b5b95;
+    --color-white:#fff;
+    --color-variant:#615286;
+    --color-dark:#333;
+}
+.dark-theme{
+    --color-background:#172531;
+    --color-white:#fff;
+    --color-variant:#294257;
+    --color-dark:#333;
+    --color-extra:#6b5b95;
+    
+}
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins',sans-serif;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+.card{
+    position: relative;
+    background: var(--color-background);
+    width:350px ;
+    height:85px;
+    border-radius: 30px;
+    filter: drop-shadow(10px 20px 40px var(--color-variant));
+    transition: 0.5s ease-in-out;
+}
+.card.active{
+    height: 420px;
+}
+
+.card .toggle{
+    position: absolute;
+    width: 70px;
+    height: 60px;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-background);
+    border-bottom-left-radius: 35px;
+    border-bottom-right-radius:35px ;
+    cursor: pointer;
+}
+.card .toggle::before{
+    content: "";
+    position: absolute;
+    left: -34px;
+    width: 35px;
+    height: 35px;
+    background: transparent;
+    border-top-right-radius: 35px;
+    box-shadow: 11px -10px 0 10px var(--color-background);
+}
+.card .toggle::after{
+    content: "";
+    position: absolute;
+    right: -34px;
+    width: 35px;
+    height: 35px;
+    background: transparent;
+    border-top-left-radius: 35px;
+    box-shadow: -11px -10px 0 10px var(--color-background);
+}
+.card .toggle span{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotate(405deg);
+    width: 10px;
+    height: 10px;
+    background: var(--color-background);
+    border-bottom: 3px solid var(--color-white);
+    border-right: 3px solid var(--color-white);
+    transition: 0.5s ease-in-out;
+}
+.card.active .toggle span{
+    transform: translate(-50%,-50%) rotate(225deg);
+}
+.card .contentBox{
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+.card .contentBox .content{
+    position: relative;
+    padding: 20px;
+    text-align: center;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.card .contentBox .content h2{
+    color: var(--color-white);
+    font-weight: 500;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    line-height: 1.2rem;
+}
+.card .contentBox .content h2 span{
+    font-size: 0.75rem;
+    font-weight: 400;
+    text-transform: initial;
+}
+.imgBox{
+    position: relative;
+    width: 250px;
+    height: 250px;
+    background: var(--color-white);
+    margin-top: 25px;
+    box-shadow: -10px 10px 10px rgba(0, 0, 0, 0.15);
+    border: 5px solid var(--color-white);
+}
+img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+button{
+    position: relative;
+    margin-top: 20px;
+    padding: 10px 35px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: var(--color-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size:1em;
+    font-weight: 500;
+    box-shadow: -10px 10px 10px rgba(0, 0, 0, 0.15);
+}
+.sun{
+    position: absolute;
+    top: 10px;
+    left: 47%;
+    width:50px;
+    height: 50px;
+    background: var(--color-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s ease-in-out;
+    border-radius: 20%;
+}
+.sun::before{
+    content: '\f185';
+    font-size: 30px;
+    font-family: fontAwesome;
+    color: var(--color-white);
+
+}
+
+body.dark-theme{
+    background: var(--color-background);
+}
+.card.dark{
+    background: var(--color-background);
+}
+.dark-theme .sun::before{
+    content:'\f186';
+    font-family: fontAwesome;
+    color: var(--color-dark);
+}
+.dark-theme .sun{
+    background-color: var(--color-extra);
+}
